@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/record/index",
+    "pages/mine/index"
+  ],
+  "tabBar": {
+    "color": "#e6e6e6",
+    "selectedColor": "#00cc66",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/tabBar/home.png",
+        "selectedIconPath": "./images/tabBar/home-selected.png"
+      },
+      {
+        "pagePath": "pages/record/index",
+        "text": "记录",
+        "iconPath": "./images/tabBar/record.png",
+        "selectedIconPath": "./images/tabBar/record-selected.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "./images/tabBar/mine.png",
+        "selectedIconPath": "./images/tabBar/mine-selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#00cc66",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00cc66",
+    "navigationBarTitleText": "菜狗食堂",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

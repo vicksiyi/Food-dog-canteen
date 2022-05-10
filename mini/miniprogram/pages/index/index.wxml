@@ -1,0 +1,17 @@
+<!-- 轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{background}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 选择 -->
+<view class="tools">
+  <view wx:for="{{tools}}" class="item">
+    <view class="img" style="background: {{item.color}};">
+      <image src="{{item.icon}}"></image>
+    </view>
+    <view class="title">{{item.title}}</view>
+  </view>
+</view>
