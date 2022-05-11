@@ -1,2 +1,10 @@
 <!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<van-search value="{{ keyword }}" placeholder="请输入搜索食物名称" />
+<!-- 食物列表 -->
+<view class="lists" style="max-height: {{height - 54}}px;">
+  <view wx:for="{{20}}" wx:key="*this" class="item">
+    <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+    <span>香蕉</span>
+    <span>热量：100Kgal</span>
+  </view>
+</view>

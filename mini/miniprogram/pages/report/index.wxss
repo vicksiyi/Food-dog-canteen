@@ -1,1 +1,37 @@
 /* pages/report/index.wxss */
+.charts-nav {
+  height: 60rpx;
+  padding: 20rpx;
+  background-color: #b5f1adcb;
+  display: flex;
+}
+
+.date-box {
+  width: calc(100% - 240rpx);
+  height: 100%;
+  background-color: #fff;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+  padding: 0 30rpx;
+}
+
+.charts-picker-box {
+  height: 100%;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #444;
+}
+.filter{
+  width: 160rpx;
+  height: 100%;
+  background-color: #fff;
+  color: #444;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+.canvas {
+  width: 750rpx;
+  height: 500rpx;
+}

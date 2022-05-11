@@ -1,2 +1,17 @@
 <!--pages/recordLog/index.wxml-->
-<text>pages/recordLog/index.wxml</text>
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab wx:for="{{asides}}" wx:key="*this" title="{{item}}">
+    <view style="height:{{height - 44}}px;">
+      <van-card wx:for="{{10}}" tag="{{index % 2 == 0 ?'点菜':'菜谱'}}" desc="米饭；水果；蔬菜；鸡腿；" title="套餐1" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png">
+        <view class="bottom" slot="price">
+          <view class="price">
+            热量：1000kgal
+          </view>
+          <view class="num">
+            2022/05/11
+          </view>
+        </view>
+      </van-card>
+    </view>
+  </van-tab>
+</van-tabs>

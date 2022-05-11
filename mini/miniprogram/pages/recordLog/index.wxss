@@ -1,1 +1,15 @@
 /* pages/recordLog/index.wxss */
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.price {
+  color: #ff3300;
+  font-size: 28rpx;
+}
+
+.num {
+  color: #9ea7b4;
+}

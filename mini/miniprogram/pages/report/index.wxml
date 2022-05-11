@@ -1,2 +1,15 @@
 <!--pages/report/index.wxml-->
-<text>pages/report/index.wxml</text>
+<view class="charts-nav">
+  <view class="date-box">
+    <picker class="charts-picker-box" mode="date" start="{{start}}" end="{{end}}" bindchange="selectDate">{{date}}</picker>
+  </view>
+  <view class="filter" bindtap="toggle">按{{text}}查询</view>
+</view>
+<view class="tag">
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab wx:for="{{asides}}" wx:key="*this" title="{{item}}"></van-tab>
+  </van-tabs>
+</view>
+<view style="margin-top:40rpx;">
+  <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
+</view>
