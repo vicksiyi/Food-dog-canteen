@@ -1,0 +1,19 @@
+/* pages/menu/index.wxss */
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu .aside {
+  width: 160rpx;
+}
+
+.menu .content {
+  width: 590rpx;
+  overflow-y: scroll;
+}
+
+.menu .content span {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}

@@ -8,7 +8,7 @@
 </swiper>
 <!-- 选择 -->
 <view class="tools">
-  <view wx:for="{{tools}}" class="item">
+  <view wx:for="{{tools}}" bindtap="nav" data-Path="{{item.path}}" class="item">
     <view class="img" style="background: {{item.color}};">
       <image src="{{item.icon}}"></image>
     </view>

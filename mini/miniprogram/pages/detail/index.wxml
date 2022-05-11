@@ -1,0 +1,30 @@
+<!--pages/detail/index.wxml-->
+<view style="height: {{height - 50}}px;overflow-y: scroll;">
+  <van-panel title="{{type?'已选菜品':'套餐列表'}}">
+    <view class="lists" style="max-height: {{height - 200}}px;">
+      <view wx:for="{{4}}" class="item">
+        <view class="img">
+          <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+        </view>
+        <view class="content">
+          <van-panel title="香蕉" desc="香蕉既可生食，也可炖熟及做成香蕉干或者果脯等食用" status="热量:100 Kcal">
+          </van-panel>
+        </view>
+      </view>
+    </view>
+  </van-panel>
+  <van-cell value="总热量: 100 Kcal"></van-cell>
+  <van-panel wx:if="{{type == 1}}" title="选择类别">
+    <van-button style="margin-left: 40rpx;" wx:if="{{!show}}" bindtap="select" type="primary">点击选择[默认：早餐]</van-button>
+    <van-popup position="bottom" show="{{ show }}" bind:close="onClose">
+      <van-picker bind:confirm="onConfirm" bind:cancel="onClose" show-toolbar title="类别" confirm-button-text="确认" cancel-button-text="取消" columns="{{ columns }}" bind:change="onChange" />
+    </van-popup>
+  </van-panel>
+</view>
+<!-- 底部 -->
+<view class="bottom">
+  <view class="item">
+    <image src="../../images/menu.png"></image>
+    <span>添加进今日{{columns[active]}}计划</span>
+  </view>
+</view>

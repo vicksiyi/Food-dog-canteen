@@ -1,8 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/detail/index",
+    "pages/menu/index",
+    "pages/order/index",
     "pages/record/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/recordLog/index",
+    "pages/search/index",
+    "pages/report/index"
   ],
   "tabBar": {
     "color": "#e6e6e6",

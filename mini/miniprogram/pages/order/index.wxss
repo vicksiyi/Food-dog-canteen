@@ -1,0 +1,66 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu .aside {
+  width: 160rpx;
+}
+
+.menu .content {
+  width: 590rpx;
+  overflow-y: scroll;
+}
+
+.menu .content .title {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.menu .content .price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.menu .content .price span {
+  color: #ff3300;
+  font-size: 28rpx;
+  padding-right: 20rpx;
+  line-height: 50rpx;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.bottom .item {
+  /* width: 200rpx; */
+  margin-left: 2rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #94EC94;
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+.bottom .item image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx 0;
+}
+
+.bottom .item span {
+  width: 120rpx;
+  text-align: center;
+}

@@ -11,23 +11,39 @@ Page({
       {
         title: "今日菜谱",
         icon: "../../images/icon/1.png",
-        color: "#EF81B6"
+        color: "#EF81B6",
+        path: "../menu/index"
+      },
+      {
+        title: "今日点菜",
+        icon: "../../images/icon/5.png",
+        color: "#5cadff",
+        path: "../order/index"
       },
       {
         title: "消费记录",
         icon: "../../images/icon/2.png",
-        color: "#04E474"
+        color: "#04E474",
+        path: "../recordLog/index"
       },
       {
         title: "热量查询",
         icon: "../../images/icon/3.png",
-        color: "#FCA705"
+        color: "#FCA705",
+        path: "../search/index"
       },
       {
         title: "健康报告",
         icon: "../../images/icon/4.png",
-        color: "#94EC94"
+        color: "#94EC94",
+        path: "../report/index"
       }
     ]
   },
+  nav(e) {
+    const path = e.currentTarget.dataset.path;
+    wx.navigateTo({
+      url: path
+    })
+  }
 });

@@ -11,7 +11,7 @@ swiper image {
 .tools {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
   flex-wrap: wrap;
 }
 
@@ -21,6 +21,8 @@ swiper image {
   text-align: center;
   font-size: 24rpx;
   color: #657180;
+  margin-left: 20rpx;
+  margin-bottom: 60rpx;
 }
 
 .tools .item .img {

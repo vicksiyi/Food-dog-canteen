@@ -1,0 +1,33 @@
+<!--pages/menu/index.wxml-->
+<view style="height: 50px;display: {{isNotice ? '':'none'}};">
+  <van-notice-bar bind:close="closeNotice" mode="closeable" left-icon="volume-o" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+</view>
+<view class="menu">
+  <view class="aside">
+    <van-sidebar active-key="{{ activeKey }}">
+      <block wx:for="{{asides}}" wx:key="*this">
+        <van-sidebar-item title="{{item}}" />
+      </block>
+    </van-sidebar>
+  </view>
+  <view class="content" style="height: {{isNotice ? (height - 50):height}}px;">
+    <van-grid column-num="3">
+      <van-grid-item bind:click="select" data-Index="{{index}}" use-slot wx:for="{{ 40 }}" wx:for-item="index">
+        <image style="width: 100%; height: 90px;" src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{ index + 1 }}.png" />
+        <view class="title">名称xxxxxx{{index + 1}}</view>
+        <view class="price">
+          <span>￥20</span>
+          <van-tag style="opacity: {{selected[index] == false?0:1}};" type="warning">已选</van-tag>
+        </view>
+      </van-grid-item>
+    </van-grid>
+  </view>
+</view>
+
+<!-- 添加计划 -->
+<view class="bottom">
+  <view bindtap="nav" class="item">
+    <image src="../../images/menu.png"></image>
+    <span>选好了</span>
+  </view>
+</view>
