@@ -22,7 +22,7 @@
 </view>
 
 <!-- 在线客服 -->
-<view class='my_item' bindtap="exit">
+<view wx:if="{{userInfo.nickName}}" class='my_item' bindtap="exit">
 	<button class="button exit">退出登录</button>
 	<view class='right_arrow exit' />
 </view>
