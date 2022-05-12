@@ -1,0 +1,27 @@
+/* pages/today/index.wxss */
+.lists {
+  overflow-y: scroll;
+}
+
+.lists .item {
+  display: flex;
+  flex-direction: row;
+  width: 720rpx;
+  margin: 20rpx auto;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.lists .item .img {
+  display: flex;
+  justify-items: center;
+}
+
+.lists .item image {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+}
+
+.lists .item .content {
+  width: 520rpx;
+}

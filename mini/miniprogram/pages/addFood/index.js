@@ -1,12 +1,17 @@
-// pages/record/index.js
+// pages/addFood/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:-1,
-    columns: ['早餐', '中餐', '晚餐', '其他餐'],
+    title: "",
+    price: "",
+    heat: "",
+    desc: "",
+    active: -1,
+    asides: ["素菜", "荤菜", "饭后甜品"],
+    show: false
   },
 
   /**

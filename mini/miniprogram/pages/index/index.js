@@ -37,6 +37,18 @@ Page({
         icon: "../../images/icon/4.png",
         color: "#94EC94",
         path: "../report/index"
+      },
+      {
+        title: "今日计划",
+        icon: "../../images/icon/6.png",
+        color: "#E8E071",
+        path: "../today/index"
+      },
+      {
+        title: "我的菜品",
+        icon: "../../images/icon/7.png",
+        color: "#E5C280",
+        path: "../mineFoods/index"
       }
     ]
   },

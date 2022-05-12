@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/mineFoods/index",
+    "pages/addFood/index",
+    "pages/today/index",
     "pages/report/index",
     "pages/search/index",
     "pages/detail/index",

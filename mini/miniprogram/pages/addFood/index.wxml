@@ -1,0 +1,17 @@
+<!--pages/addFood/index.wxml-->
+<view class="upload">
+  <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+</view>
+<van-cell-group>
+  <van-field label="菜品名称" model:value="{{ title }}" placeholder="请输入菜品名称" border="{{ false }}" />
+  <van-field label="菜品金额" type="number" model:value="{{ price }}" placeholder="请输入菜品金额" border="{{ false }}" />
+  <van-field label="菜品热量" type="number" model:value="{{ heat }}" placeholder="请输入菜品热量" border="{{ false }}" />
+  <van-field label="菜品描述" model:value="{{ desc }}" placeholder="请输入菜品描述" border="{{ false }}" />
+  <van-field bindtap="select" value="{{active == -1?'点击选择':asides[active]}}" label="菜品类别" readonly border="{{ false }}" />
+  <van-popup position="bottom" show="{{ show }}" bind:close="onClose">
+    <van-picker bind:confirm="onConfirm" bind:cancel="onClose" show-toolbar title="类别" confirm-button-text="确认" cancel-button-text="取消" columns="{{ asides }}" bind:change="onChange" />
+  </van-popup>
+</van-cell-group>
+<view class="btn">
+  <van-button type="primary" block>添加</van-button>
+</view>
