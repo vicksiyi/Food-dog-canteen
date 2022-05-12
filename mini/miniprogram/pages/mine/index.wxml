@@ -1,2 +1,28 @@
 <!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<!-- 暂时未登录 -->
+<view wx:if="{{!userInfo.nickName}}" class="btn">
+  <van-button bind:click="auth" type="primary" block>授权登录</van-button>
+</view>
+<!-- 个人信息条目 -->
+<view wx:else class="bg-detail">
+  <view class="user-detail">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <span>{{userInfo.nickName}}</span>
+  </view>
+</view>
+<!-- 反馈建议 -->
+<view class='my_item'>
+	<button class="button" open-type="feedback">反馈建议</button>
+	<view class='right_arrow' />
+</view>
+<!-- 在线客服 -->
+<view class='my_item'>
+	<button class="button" open-type="contact">在线客服</button>
+	<view class='right_arrow' />
+</view>
+
+<!-- 在线客服 -->
+<view class='my_item' bindtap="exit">
+	<button class="button exit">退出登录</button>
+	<view class='right_arrow exit' />
+</view>

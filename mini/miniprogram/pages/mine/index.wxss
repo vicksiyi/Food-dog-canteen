@@ -1,1 +1,84 @@
 /* pages/mine/index.wxss */
+.btn {
+  width: 80%;
+  margin: 20rpx auto;
+}
+
+.bg-detail {
+  background: #00cc66;
+  height: 300rpx;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.user-detail {
+  width: 160rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 40rpx auto;
+}
+
+.user-detail image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px 0 #fff;
+}
+
+.user-detail span {
+  margin-top: 20rpx;
+  color: #fff;
+}
+
+/*  下面是关键去除边框 */
+.button {
+  width: 100%;
+  background: white;
+  border: none;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1.5;
+  font-size: 16px
+}
+
+/*  下面是关键去除边框 */
+.button::after {
+  border: none;
+  border-radius: 0;
+}
+
+.my_item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 17px;
+  background: white;
+  border-bottom: 1px solid gainsboro;
+}
+
+.right_arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  position: absolute;
+  right: 15px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.exit {
+  color: #ff3300;
+}
+
+.right_arrow.exit {
+  border: solid #ff3300;
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  position: absolute;
+  right: 15px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
