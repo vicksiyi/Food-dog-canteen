@@ -3,7 +3,8 @@
     "van-search": "@vant/weapp/search/index",
     "van-panel": "@vant/weapp/panel/index",
     "van-button": "@vant/weapp/button/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-empty": "@vant/weapp/empty/index"
   },
   "navigationBarTitleText": "添加菜谱"
 }

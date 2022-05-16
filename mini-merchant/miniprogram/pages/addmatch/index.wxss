@@ -4,7 +4,7 @@
 }
 
 .lists .item {
-  height: 200rpx;
+  min-height: 200rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,6 +29,10 @@
   width: 160rpx;
   height: 160rpx;
   margin: 20rpx;
+}
+
+.lists .content {
+  width: 100%;
 }
 
 .btn {

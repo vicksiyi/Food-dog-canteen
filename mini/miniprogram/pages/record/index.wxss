@@ -31,6 +31,10 @@
   margin: 20rpx;
 }
 
+.lists .content {
+  width: 100%;
+}
+
 .btn {
   width: 80%;
   margin: 20rpx auto;
