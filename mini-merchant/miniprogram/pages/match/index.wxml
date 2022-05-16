@@ -1,5 +1,5 @@
 <!--pages/match/index.wxml-->
-<van-card bindtap="nav" wx:for="{{40}}" price="19.8" desc="套餐描述信息{{index + 1}}" title="套餐{{index + 1}}" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png" />
+<van-card bindtap="nav" data-_id="{{item._id}}" wx:for="{{foods}}" price="{{item.price}}" desc="{{item.desc}}" title="{{item.name}}" thumb="{{item.foods[0].img}}" />
 
 <!-- 添加 -->
 <view class="add">
