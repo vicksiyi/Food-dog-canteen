@@ -41,3 +41,15 @@
   height: 200px;
   margin: auto;
 }
+
+.select-time{
+  padding-top: 20rpx;
+  padding-left: 30rpx;
+  color: #646566;
+}
+
+.select-time span{
+  display:inline-block;
+  width: 186rpx;
+  font-size: 30rpx;
+}
