@@ -1,0 +1,10 @@
+/* pages/addFood/index.wxss */
+.upload {
+  width: 88px;
+  margin: 30rpx auto;
+}
+
+.btn{
+  width: 80%;
+  margin: 20rpx auto;
+}

@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addfood/index",
+    "pages/addmenu/index",
+    "pages/addmatch/index",
+    "pages/matchdetail/index",
+    "pages/menu/index",
+    "pages/match/index",
+    "pages/upload/index"
+  ],
+  "window": {
+    "backgroundColor": "#ee0a24",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ee0a24",
+    "navigationBarTitleText": "菜狗食堂-商家端",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

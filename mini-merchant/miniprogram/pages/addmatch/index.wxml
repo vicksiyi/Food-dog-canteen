@@ -1,0 +1,41 @@
+<!--pages/addmatch/index.wxml-->
+<van-search value="{{ value }}" placeholder="请输入搜索菜品名称" />
+<!-- 搜索结果 -->
+<van-panel title="搜索结果">
+  <view class="lists" style="max-height: 200px;">
+    <view wx:for="{{5}}" wx:key="*this" class="item">
+      <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+      <span>香蕉</span>
+      <span>热量：100Kgal</span>
+    </view>
+    <!-- <view class="empty">
+      <van-empty image="search" description="暂无菜品" />
+    </view> -->
+  </view>
+</van-panel>
+<!-- 当前选择 -->
+<van-panel title="当前选择">
+  <view class="lists" style="max-height: 200px;">
+    <view wx:for="{{4}}" class="item">
+      <view class="img">
+        <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+      </view>
+      <view class="content">
+        <van-panel title="香蕉" desc="香蕉既可生食，也可炖熟及做成香蕉干或者果脯等食用" status="热量:100 Kcal">
+        </van-panel>
+      </view>
+    </view>
+    <!-- <view class="empty">
+      <van-empty description="暂无选择" />
+    </view> -->
+  </view>
+</van-panel>
+<!-- 输入菜谱名称 -->
+<van-panel title="基本信息">
+  <van-field label="菜谱名称" value="{{ name }}" placeholder="请输入菜谱名称" border="{{ false }}" bind:change="onChange" />
+  <van-field label="菜谱金额" type="number" model:value="{{ price }}" placeholder="请输入菜谱金额" border="{{ false }}" />
+  <van-field label="菜谱描述" model:value="{{ desc }}" placeholder="请输入菜谱描述" border="{{ false }}" />
+</van-panel>
+<view class="btn">
+  <van-button type="danger" block>创建菜谱</van-button>
+</view>

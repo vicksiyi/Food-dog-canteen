@@ -1,0 +1,30 @@
+<!--pages/addmenu/index.wxml-->
+<!-- 搜索 -->
+<van-search value="{{ value }}" placeholder="请输入搜索菜品名称" />
+<!-- 搜索结果 -->
+<van-panel title="搜索结果">
+  <view class="lists" style="max-height: 200px;">
+    <van-card  wx:for="{{4}}" price="19.8" desc="套餐描述信息{{index + 1}}" title="套餐{{index + 1}}" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png" />
+    <!-- <view class="empty">
+      <van-empty image="search" description="暂无菜品" />
+    </view> -->
+  </view>
+</van-panel>
+<!-- 当前选择 -->
+<van-panel title="当前选择">
+  <view class="lists" style="max-height: 200px;">
+    <van-card wx:for="{{1}}" price="19.8" desc="套餐描述信息{{index + 1}}" title="套餐{{index + 1}}" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png" />
+    <!-- <view class="empty">
+      <van-empty description="暂无选择" />
+    </view> -->
+  </view>
+</van-panel>
+<van-panel title="类别选择">
+  <van-field bindtap="select" value="{{active == -1?'点击选择':columns[active]}}" label="菜品类别" readonly border="{{ false }}" />
+  <van-popup position="bottom" show="{{ show }}" bind:close="onClose">
+    <van-picker bind:confirm="onConfirm" bind:cancel="onClose" show-toolbar title="类别" confirm-button-text="确认" cancel-button-text="取消" columns="{{ columns }}" bind:change="onChange" />
+  </van-popup>
+</van-panel>
+<view class="btn">
+  <van-button type="danger" block>添加</van-button>
+</view>

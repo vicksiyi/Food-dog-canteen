@@ -1,0 +1,25 @@
+/* pages/upload/index.wxss */
+.title {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content:start;
+}
+
+.price span {
+  color: #ff3300;
+  font-size: 28rpx;
+  padding-right: 20rpx;
+  line-height: 50rpx;
+}
+
+.add{
+  position: fixed;
+  right: 50rpx;
+  bottom: 100rpx;
+  z-index: 999;
+}

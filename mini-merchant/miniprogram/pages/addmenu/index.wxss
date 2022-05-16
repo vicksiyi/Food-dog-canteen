@@ -1,0 +1,43 @@
+/* pages/addmenu/index.wxss */
+.lists {
+  overflow-y: scroll;
+}
+
+.lists .item {
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  color: #464c5b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  width: 720rpx;
+  margin: 20rpx auto;
+}
+
+.lists .item span {
+  font-size: 36rpx;
+  line-height: 200rpx;
+}
+
+.lists .item span:last-child {
+  margin-right: 40rpx;
+  color: #F56C6C;
+}
+
+.lists .item image {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+}
+
+.btn {
+  width: 80%;
+  margin: 20rpx auto;
+}
+
+.van-empty {
+  width: 400rpx;
+  height: 200px;
+  margin: auto;
+}

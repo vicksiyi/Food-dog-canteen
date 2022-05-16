@@ -1,0 +1,7 @@
+/* pages/match/index.wxss */
+.add{
+  position: fixed;
+  right: 50rpx;
+  bottom: 100rpx;
+  z-index: 999;
+}

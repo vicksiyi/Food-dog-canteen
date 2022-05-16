@@ -1,0 +1,8 @@
+<view class="tools">
+  <view wx:for="{{tools}}" bindtap="nav" data-Path="{{item.path}}" class="item">
+    <view class="img" style="background: {{item.color}};">
+      <image src="{{item.icon}}"></image>
+    </view>
+    <view class="title">{{item.title}}</view>
+  </view>
+</view>

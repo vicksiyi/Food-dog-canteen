@@ -2,7 +2,7 @@
 .charts-nav {
   height: 60rpx;
   padding: 20rpx;
-  background-color: #b5f1adcb;
+  background-color: #fafafa;
   display: flex;
 }
 

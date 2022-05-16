@@ -1,0 +1,30 @@
+.tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.tools .item {
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #657180;
+  margin-left: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.tools .item .img {
+  background: chocolate;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx;
+}
+
+.tools .item image {
+  width: 65rpx;
+  height: 65rpx;
+  margin: 15rpx;
+}

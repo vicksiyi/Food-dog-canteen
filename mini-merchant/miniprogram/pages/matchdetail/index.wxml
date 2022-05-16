@@ -1,0 +1,17 @@
+<!--pages/detail/index.wxml-->
+<view style="height: {{height - 50}}px;overflow-y: scroll;">
+  <van-panel title="{{type?'已选菜品':'套餐列表'}}">
+    <view class="lists" style="max-height: {{height - 200}}px;">
+      <view wx:for="{{4}}" class="item">
+        <view class="img">
+          <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+        </view>
+        <view class="content">
+          <van-panel title="香蕉" desc="香蕉既可生食，也可炖熟及做成香蕉干或者果脯等食用" status="热量:100 Kcal">
+          </van-panel>
+        </view>
+      </view>
+    </view>
+  </van-panel>
+  <van-cell value="总热量: 100 Kcal"></van-cell>
+</view>
