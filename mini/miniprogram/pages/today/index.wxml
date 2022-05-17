@@ -4,14 +4,15 @@
 </van-tabs>
 <van-panel title="菜品列表">
   <view class="lists" style="max-height: {{height - 200}}px;">
-    <view wx:for="{{4}}" class="item">
+    <view wx:for="{{activeFoods[0].foods.foods}}" class="item">
       <view class="img">
-        <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
+        <image src="{{item.img}}"></image>
       </view>
       <view class="content">
-        <van-panel title="香蕉" desc="香蕉既可生食，也可炖熟及做成香蕉干或者果脯等食用" status="热量:100 Kcal">
+        <van-panel title="{{item.title}}" desc="{{item.desc}}" status="热量:{{item.heat}} Kcal">
         </van-panel>
       </view>
     </view>
+    <van-empty wx:if="{{!activeFoods.length}}" description="暂无计划" />
   </view>
 </van-panel>
