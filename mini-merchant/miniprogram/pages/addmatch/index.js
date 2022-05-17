@@ -28,7 +28,8 @@ Page({
       title: db.RegExp({
         regexp: keyword,
         option: 'i'
-      })
+      }),
+      identity: _.neq(1)
     }).get({
       success: function (res) {
         _this.setData({ searchs: res.data })

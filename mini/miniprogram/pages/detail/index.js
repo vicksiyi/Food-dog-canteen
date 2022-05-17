@@ -14,7 +14,8 @@ Page({
     active: 0,
     foods: [],
     allHeat: 0,
-    datas: []
+    datas: [],
+    type: 0
   },
 
   /**
@@ -23,7 +24,15 @@ Page({
   onLoad(options) {
     let _this = this;
     let { type, active, _id } = options;
-    if (type) this.setData({ type })
+    if (type) {
+      let foods = wx.getStorageSync('_foods')
+      this.setData({
+        type, foods, allHeat: foods.map(value => value.heat).reduce((total, value) => {
+          return parseInt(total) + parseInt(value);
+        }),
+        type: 1
+      })
+    }
     if (active) this.setData({ active })
     wx.getSystemInfo({
       success: (result) => {
@@ -32,7 +41,10 @@ Page({
         })
       },
     })
-    this.getData(_id);
+    if (_id) this.getData(_id)
+    else {
+
+    }
   },
   onClose() {
     this.setData({ show: false });
@@ -66,10 +78,10 @@ Page({
     })
   },
   add() {
-    let { datas, columns, active } = this.data;
+    let { datas, foods, columns, active, type } = this.data;
     let nowDay = new Date();
     let day = dateFormat("YYYY-mm-dd", nowDay);
-    wx.showLoading({ title: '添加中', mask: true })
+    wx.showLoading({ title: '添加中', mask: true });
     db.collection('plans').where({
       date: day,
       type: columns[active]
@@ -81,25 +93,43 @@ Page({
             type: columns[active]
           }).update({
             data: {
-              date: day, type: columns[active], foods: datas
+              date: day,
+              type: columns[active],
+              foods: type == 1 ? {
+                foods: foods,
+                desc: foods.map(value => value.title).join("、"),
+                name: "点菜添加",
+                price: foods.map(value => value.price).reduce((total, num) => { return parseInt(total) + parseInt(num); })
+              } : datas
             },
             success() {
               wx.showToast({ title: '更新成功', icon: 'none' })
             },
             complete() {
               wx.hideLoading()
+            },
+            fail(err) {
+              console.log(err);
+              wx.showToast({ title: '更新失败', icon: 'none' })
             }
           })
         } else {
           db.collection('plans').add({
             data: {
-              date: day, type: columns[active], foods: datas
+              date: day,
+              type: columns[active],
+              foods: type == 1 ? {
+                foods: foods
+              } : datas
             },
             success() {
               wx.showToast({ title: '添加成功', icon: 'none' })
             },
             complete() {
               wx.hideLoading()
+            },
+            fail() {
+              wx.showToast({ title: '添加失败', icon: 'none' })
             }
           })
         }
