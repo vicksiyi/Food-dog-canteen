@@ -1,5 +1,6 @@
 // pages/upload/index.js
 const db = wx.cloud.database()
+const _ = db.command
 Page({
 
   /**
@@ -22,11 +23,13 @@ Page({
       title: '获取数据',
       mask: true
     })
-    db.collection('food').get({
+    db.collection('food').where({
+      identity: _.neq(1)
+    }).get({
       success: function (res) {
         _this.setData({ foods: res.data })
       },
-      complete(){
+      complete() {
         wx.hideLoading()
       }
     })

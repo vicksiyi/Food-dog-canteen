@@ -4,7 +4,8 @@
     "van-field": "@vant/weapp/field/index",
     "van-picker": "@vant/weapp/picker/index",
     "van-popup": "@vant/weapp/popup/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index"
   },
   "navigationBarTitleText": "添加菜品"
 }

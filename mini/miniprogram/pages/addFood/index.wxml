@@ -1,6 +1,6 @@
 <!--pages/addFood/index.wxml-->
 <view class="upload">
-  <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+  <van-image bindtap="upload" width="88" height="88" src="{{img}}" />
 </view>
 <van-cell-group>
   <van-field label="菜品名称" model:value="{{ title }}" placeholder="请输入菜品名称" border="{{ false }}" />
@@ -13,5 +13,5 @@
   </van-popup>
 </van-cell-group>
 <view class="btn">
-  <van-button type="primary" block>添加</van-button>
+  <van-button bindtap="add" type="primary" block>添加</van-button>
 </view>

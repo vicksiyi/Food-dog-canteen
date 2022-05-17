@@ -83,11 +83,10 @@ Page({
             data: {
               date: day, type: columns[active], foods: datas
             },
+            success() {
+              wx.showToast({ title: '更新成功', icon: 'none' })
+            },
             complete() {
-              wx.showToast({
-                title: '更新成功',
-                icon: 'none'
-              })
               wx.hideLoading()
             }
           })
@@ -96,17 +95,17 @@ Page({
             data: {
               date: day, type: columns[active], foods: datas
             },
+            success() {
+              wx.showToast({ title: '添加成功', icon: 'none' })
+            },
             complete() {
-              wx.showToast({
-                title: '添加成功',
-                icon: 'none'
-              })
               wx.hideLoading()
             }
           })
         }
       },
-      fail(){
+      fail(err) {
+        wx.showToast({ title: err, icon: 'none' })
         wx.hideLoading()
       }
     })
