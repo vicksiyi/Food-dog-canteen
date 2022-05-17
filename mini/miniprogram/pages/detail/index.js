@@ -1,4 +1,6 @@
 // pages/detail/index.js
+const db = wx.cloud.database()
+const { dateFormat } = require("../../utils/utils");
 Page({
 
   /**
@@ -9,7 +11,10 @@ Page({
     type: 0,
     columns: ['早餐', '中餐', '晚餐', '其他餐'],
     show: false,
-    active: 0
+    active: 0,
+    foods: [],
+    allHeat: 0,
+    datas: []
   },
 
   /**
@@ -17,7 +22,7 @@ Page({
    */
   onLoad(options) {
     let _this = this;
-    let { type, active } = options;
+    let { type, active, _id } = options;
     if (type) this.setData({ type })
     if (active) this.setData({ active })
     wx.getSystemInfo({
@@ -27,6 +32,7 @@ Page({
         })
       },
     })
+    this.getData(_id);
   },
   onClose() {
     this.setData({ show: false });
@@ -37,5 +43,72 @@ Page({
   onConfirm(event) {
     const { picker, value, index } = event.detail;
     this.setData({ active: index, show: false })
+  },
+  getData(_id) {
+    let _this = this;
+    wx.showLoading({
+      title: '获取数据',
+      mask: true
+    })
+    db.collection('foods').doc(_id).get({
+      success: function (res) {
+        _this.setData({
+          foods: res.data.foods,
+          datas: res.data,
+          allHeat: res.data.foods.map(value => value.heat).reduce((total, value) => {
+            return parseInt(total) + parseInt(value);
+          })
+        })
+      },
+      complete() {
+        wx.hideLoading()
+      }
+    })
+  },
+  add() {
+    let { datas, columns, active } = this.data;
+    let nowDay = new Date();
+    let day = dateFormat("YYYY-mm-dd", nowDay);
+    wx.showLoading({ title: '添加中', mask: true })
+    db.collection('plans').where({
+      date: day,
+      type: columns[active]
+    }).get({
+      success(res) {
+        if (res.data.length) {
+          db.collection('plans').where({
+            date: day,
+            type: columns[active]
+          }).update({
+            data: {
+              date: day, type: columns[active], foods: datas
+            },
+            complete() {
+              wx.showToast({
+                title: '更新成功',
+                icon: 'none'
+              })
+              wx.hideLoading()
+            }
+          })
+        } else {
+          db.collection('plans').add({
+            data: {
+              date: day, type: columns[active], foods: datas
+            },
+            complete() {
+              wx.showToast({
+                title: '添加成功',
+                icon: 'none'
+              })
+              wx.hideLoading()
+            }
+          })
+        }
+      },
+      fail(){
+        wx.hideLoading()
+      }
+    })
   }
 })

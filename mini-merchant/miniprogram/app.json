@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/menu/index",
     "pages/index/index",
+    "pages/menu/index",
     "pages/addmenu/index",
     "pages/addmatch/index",
     "pages/addfood/index",

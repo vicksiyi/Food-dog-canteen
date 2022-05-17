@@ -1,6 +1,6 @@
 <!--pages/menu/index.wxml-->
 <view style="height: 50px;display: {{isNotice ? '':'none'}};">
-  <van-notice-bar bind:close="closeNotice" mode="closeable" left-icon="volume-o" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+  <van-notice-bar bind:close="closeNotice" mode="closeable" left-icon="volume-o" text="最近天气炎热，比较适合吃清淡的食物" />
 </view>
 <view class="menu">
   <view class="aside">
@@ -11,12 +11,7 @@
     </van-sidebar>
   </view>
   <view class="content" style="height: {{isNotice ? (height - 50):height}}px;">
-    <!-- <van-grid column-num="3">
-      <van-grid-item link-type="navigateTo" url="../detail/index" use-slot wx:for="{{ 8 }}" wx:for-item="index">
-        <image  style="width: 100%; height: 90px;" src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg" />
-        <span>荤素套餐{{index + 1}}</span>
-      </van-grid-item>
-    </van-grid> -->
-    <van-card bindtap="nav" wx:for="{{40}}" price="19.8" desc="套餐描述信息{{index + 1}}" title="套餐{{index + 1}}" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png" />
+    <van-card bindtap="nav" data-_id="{{item.foods._id}}" wx:for="{{activeFoods}}" price="{{item.foods.price}}" desc="{{item.foods.desc}}" title="{{item.foods.name}}" thumb="{{item.foods.foods[0].img}}" />
+    <van-empty wx:if="{{!activeFoods.length}}" description="暂无菜谱" />
   </view>
 </view>
