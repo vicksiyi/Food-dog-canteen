@@ -2,7 +2,7 @@
 <van-tabs active="{{ active }}" bind:change="onChange">
   <van-tab wx:for="{{asides}}" wx:key="*this" title="{{item}}">
     <view style="height:{{height - 44}}px;">
-      <van-card wx:for="{{activePlans[active]}}" tag="{{item.foods.name == '点菜添加' ?'点菜':'菜谱'}}" desc="{{item.foods.desc}}" title="{{item.foods.name}}" thumb="{{item.foods.foods[0].img}}">
+      <van-card wx:for="{{activePlans[active]}}" tag="{{item.foods.name == '点菜添加' ?'点菜':item.foods.name=='记录添加'?'记录':'菜谱'}}" desc="{{item.foods.desc}}" title="{{item.foods.name}}" thumb="{{item.foods.foods[0].img}}">
         <view class="bottom" slot="price">
           <view class="price">
             热量：{{item.heat}}kgal
