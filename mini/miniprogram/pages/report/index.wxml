@@ -10,6 +10,7 @@
     <van-tab wx:for="{{asides}}" wx:key="*this" title="{{item}}"></van-tab>
   </van-tabs>
 </view>
-<view style="margin-top:40rpx;">
+<view wx:if="{{date != '选择日期'}}" style="margin-top:40rpx;">
   <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
 </view>
+<van-empty wx:else description="请先选择时间" />

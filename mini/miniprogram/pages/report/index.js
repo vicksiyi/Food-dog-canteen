@@ -1,5 +1,6 @@
 // pages/report/index.js
 var wxCharts = require("../../utils/wxcharts.js");
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -15,33 +16,29 @@ Page({
     userDate: '',
     textArray: ['年', '月', '日'],
     textIndex: 0,
-    imageWidth: 0, 
-    active: 1,
+    imageWidth: 0,
+    active: 0,
     asides: ["早餐", "中餐", "晚餐", "其他餐"],
+    foods: [],
+    activeFoods: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    new wxCharts({
-      canvasId: 'columnCanvas',
-      type: 'column',
-      categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-      series: [{
-        name: '热量',
-        data: [15, 14, 13.03, 15.4, 15.8, 12, 15.08, 15, 15, 15.09, 15.8, 13.202]
-      }],
-      yAxis: {
-        format: function (val) {
-          return val + '千';
-        },
-        /*max:400,
-        min:0*/
-      },
-      width: 370,
-      height: 200
-    });
+
+  },
+  onChange(event) {
+    let { asides, foods } = this.data;
+    let activeFoods = foods.filter(value => value.type == asides[event.detail.index]);
+    let data = {};
+    data.xData = activeFoods.map(value => value.date);
+    data.series = activeFoods.map(value => value.foods.foods.map(value => value.heat).reduce((total, num) => {
+      return parseInt(total) + parseInt(num);
+    }));
+    this.updateChart(data);
+    this.setData({ active: event.detail.index, activeFoods });
   },
   //选择日期
   selectDate(e) {
@@ -55,6 +52,7 @@ Page({
     } else {
       date = currentDate;
     }
+    this.getData(date);
     this.setData({
       userDate: currentDate, date
     })
@@ -67,11 +65,9 @@ Page({
     } else {
       this.data.textIndex++;
     }
-
     this.setData({
       text: this.data.textArray[this.data.textIndex]
     })
-
     if (!this.data.userDate) return;
     let date = null;
     if (this.data.textIndex === 0) {
@@ -81,6 +77,52 @@ Page({
     } else {
       date = this.data.userDate;
     }
+    this.getData(date);
     this.setData({ date })
+  },
+  updateChart(data) {
+    new wxCharts({
+      canvasId: 'columnCanvas',
+      type: 'column',
+      categories: data.xData,
+      series: [{
+        name: '热量',
+        data: data.series
+      }],
+      yAxis: {
+        format: function (val) {
+          return val + 'Kgal';
+        },
+        /*max:400,
+        min:0*/
+      },
+      width: 370,
+      height: 200
+    });
+  },
+  getData(date) {
+    let _this = this;
+    let { active, asides } = this.data;
+    wx.showLoading({ title: '获取数据', mask: true })
+    db.collection('plans').where({
+      date: db.RegExp({
+        regexp: date,
+        option: 'i'
+      })
+    }).get({
+      success: function (res) {
+        let activeFoods = res.data.filter(value => value.type == asides[active]);
+        let data = {};
+        data.xData = activeFoods.map(value => value.date);
+        data.series = activeFoods.map(value => value.foods.foods.map(value => value.heat).reduce((total, num) => {
+          return parseInt(total) + parseInt(num);
+        }));
+        _this.updateChart(data);
+        _this.setData({ foods: res.data, activeFoods })
+      },
+      complete() {
+        wx.hideLoading()
+      }
+    })
   }
 })
