@@ -1,5 +1,6 @@
 // pages/addmatch/index.js
 const db = wx.cloud.database()
+const _ = db.command
 Page({
 
   /**

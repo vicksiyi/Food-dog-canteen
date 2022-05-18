@@ -1,10 +1,11 @@
 <!--pages/search/index.wxml-->
-<van-search value="{{ keyword }}" placeholder="请输入搜索食物名称" />
+<van-search value="{{ keyword }}" bind:change="inputChange" bind:search="search" placeholder="请输入搜索食物名称" />
 <!-- 食物列表 -->
 <view class="lists" style="max-height: {{height - 54}}px;">
-  <view wx:for="{{20}}" wx:key="*this" class="item">
-    <image src="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png"></image>
-    <span>香蕉</span>
-    <span>热量：100Kgal</span>
+  <view wx:for="{{searchs}}" wx:key="*this" class="item">
+    <image src="{{item.img}}"></image>
+    <span>{{item.title}}</span>
+    <span>热量：{{item.heat}} Kgal</span>
   </view>
+  <van-empty wx:if="{{!searchs.length}}" description="搜索为空" />
 </view>
