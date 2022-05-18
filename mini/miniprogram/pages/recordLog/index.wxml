@@ -2,16 +2,17 @@
 <van-tabs active="{{ active }}" bind:change="onChange">
   <van-tab wx:for="{{asides}}" wx:key="*this" title="{{item}}">
     <view style="height:{{height - 44}}px;">
-      <van-card wx:for="{{10}}" tag="{{index % 2 == 0 ?'点菜':'菜谱'}}" desc="米饭；水果；蔬菜；鸡腿；" title="套餐1" thumb="cloud://cloud1-6gyk321306fd5b0f.636c-cloud1-6gyk321306fd5b0f-1311839739/foods/{{index + 1}}.png">
+      <van-card wx:for="{{activePlans[active]}}" tag="{{item.foods.name == '点菜添加' ?'点菜':'菜谱'}}" desc="{{item.foods.desc}}" title="{{item.foods.name}}" thumb="{{item.foods.foods[0].img}}">
         <view class="bottom" slot="price">
           <view class="price">
-            热量：1000kgal
+            热量：{{item.heat}}kgal
           </view>
           <view class="num">
-            2022/05/11
+            {{item.date}}
           </view>
         </view>
       </van-card>
+      <van-empty wx:if="{{!activePlans[active].length}}" description="描述文字" />
     </view>
   </van-tab>
 </van-tabs>

@@ -119,7 +119,10 @@ Page({
               date: day,
               type: columns[active],
               foods: type == 1 ? {
-                foods: foods
+                foods: foods,
+                desc: foods.map(value => value.title).join("、"),
+                name: "点菜添加",
+                price: foods.map(value => value.price).reduce((total, num) => { return parseInt(total) + parseInt(num); })
               } : datas
             },
             success() {
