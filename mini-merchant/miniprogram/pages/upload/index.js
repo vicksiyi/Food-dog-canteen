@@ -1,6 +1,7 @@
 // pages/upload/index.js
 const db = wx.cloud.database()
 const _ = db.command
+
 Page({
 
   /**
@@ -28,6 +29,9 @@ Page({
     }).get({
       success: function (res) {
         _this.setData({ foods: res.data })
+      },
+      fail(err){
+        console.log(err);
       },
       complete() {
         wx.hideLoading()
